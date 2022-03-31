@@ -1,24 +1,19 @@
-﻿// Задача 1. На вход подаётся натуральное десятичное число.
-// Проверьте, является ли оно палиндромом в двоичной записи.
-
-using System;
-using System.Collections.Generic;
-{
-    void Perevod(int number)
+﻿int[] arr = { 2, 4, 3, 2, 4, 3, 4, 4, 3, 2, 3, 2 };
+List<int> list_0 = new List<int>();
+int leng =1;
+list_0.Add(arr[0]);
+Console.Write(list_0[0] + ", ");
+    for(int j = 0; j<arr.Length; j++)
     {
-        List<int> dvoich = new List<int>();
-        for (int i = 0; number >= 1; i++)
+        int mod = 0;
+        for(int k = 0; k<leng; k++)
         {
-            dvoich.Add(number % 2);
-            number = number / 2;
-            i++;
+            if (arr[j] == list_0[k]) mod = 1;
         }
-        int[] num = dvoich.ToArray();
-        Console.WriteLine(num.Length);
-        Console.WriteLine("");
-        for (int j = 0; j < num.Length; j++) Console.Write(num[num.Length - 1 - j] + ", ");
+        if (mod == 0) 
+        {
+            list_0.Add(arr[j]);
+            Console.Write(arr[j] + ", ");
+            leng += 1; 
+        }
     }
-    int numb = 100;
-    Perevod(numb);    
-}
-
